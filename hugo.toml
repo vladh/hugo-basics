@@ -1,0 +1,4 @@
+baseURL = 'https://example.com'
+locale = 'en-gb'
+title = "My Website"
+disableKinds = ['taxonomy', 'term']

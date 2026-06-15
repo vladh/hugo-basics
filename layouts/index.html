@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+	<p>This is my homepage.</p>
+
+	<p>Check out my <a href="/about">about page</a>.</p>
+
+	<h2>My posts</h2>
+
+	<ul>
+		{{ range (where .Site.RegularPages ".Params.type" "ne" "custom") }}
+			<li>
+				<a href="{{ .RelPermalink }}">
+					{{ .LinkTitle }}
+				</a>
+			</li>
+		{{ end }}
+	</ul>
+
+	<h2>Alpaca</h2>
+
+	<img src="/images/alpaca.webp" width="300" height="300">
+
+{{ end }}

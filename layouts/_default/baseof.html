@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		{{ partial "meta.html" . }}
+
+		{{ if hugo.IsProduction }}
+			<style>{{ with resources.Get "main.css" | minify }}{{ .Content | safeCSS }}{{ .Publish }}{{ end }}</style>
+		{{ else }}
+			{{ $style := resources.Get "main.css" }}
+			<link rel="stylesheet" href="{{ $style.Permalink }}">
+		{{ end }}
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				Welcome to my website.
+			</div>
+		</header>
+		<main id="main-content">
+			<div class="container">
+				{{ block "main" . }}{{ end }}
+			</div>
+		</main>
+	</body>
+</html>
